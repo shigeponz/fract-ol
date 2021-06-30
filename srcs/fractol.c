@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:05:26 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/01 07:05:58 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/01 07:54:20 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	main(int argc, char *argv[])
 {
-	
+	argc = 0;
+	argv = NULL;
 }

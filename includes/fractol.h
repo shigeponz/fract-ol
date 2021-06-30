@@ -6,14 +6,14 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/01 07:05:08 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/01 07:25:36 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-
-
+# include "../libft/libft.h"
+# include <math.h>
 
 #endif

@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/12 00:06:35 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/12 00:08:12 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,11 +46,11 @@ all: $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBFTDIR) fclean
-	$(MAKE) -C $(LINUX_MLX_DIR) fclean
+	$(MAKE) -C $(LINUX_MLX_DIR) clean
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) minilibx-linux
+	$(RM) $(NAME) libmlx_Linux.a
 
 re: fclean all
 

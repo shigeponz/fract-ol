@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/11 23:22:31 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/12 00:11:35 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	ft_close(t_fractol *frac)
 	mlx_destroy_image(frac->var.mlx, frac->img.img);
 //	mlx_destroy_display(frac->var.mlx);
 	free(frac->var.mlx);
-	return (0);
+	exit(0);
 }

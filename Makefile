@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/11 23:25:54 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/11 23:50:01 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ RM			:= rm -f
 UNAME		:= $(shell uname)
 
 ifeq ($(UNAME), Linux)
-LIBS	:= -lmlx -lXext -lX11
+LIBS 	:= -lXext -lX11
 SOURCE	:= main.c error.c init.c utils.c
 MLX		:= ./linux_mlx/minilibx-linux
 else
-LIBS	:= -framework OpenGL -framework AppKit
+LIBS 	:= libmlx.dylib -framework OpenGL -framework AppKit
 SOURCE	:= main.c error.c init.c utils.c
 MLX		:= ./mlx/libmlx.dylib
 endif
@@ -42,7 +42,7 @@ $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(LINUX_MLX_DIR)
 	cp $(MLX) .
-	$(CC) $(CFLAGS) $(SRCS) $(MLX) $(LIBS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -L. -L.minilibx-linux -lmlx_Linux $(LIBS) -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)
 

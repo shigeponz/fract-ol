@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/11 23:17:26 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/11 23:54:03 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include "../libft/libft.h"
-# include "../linux_mlx/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <math.h>
 
 # define INVALID_COMMANDLINE_NUM_ERR "invalid number of command line\n"

@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/12 00:09:29 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/12 00:24:48 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,22 @@
 # define JULIA_ID 1
 # define WIN_HEIGHT 500
 # define WIN_WIDTH 809
-# define X_EVENT_KEY_EXIT 65307
 
+# ifdef MAC
+
+# define X_EVENT_KEY_PRESS 2
+# define X_EVENT_KEY_EXIT 17
+# define K_ESC 53
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
+
+# else
+
+# define X_EVENT_KEY_PRESS 2
+# define X_EVENT_KEY_EXIT 33
+# define K_ESC 65307
+
+#endif
 
 typedef struct s_vars
 {
@@ -62,5 +74,6 @@ int			ft_validate_argv(char *argv[]);
 void		ft_mandelbrot(void);
 int			ft_close(t_fractol *frac);
 t_fractol	ft_frac_init(int argc, char *argv[]);
+int			ft_keypress(int key, t_fractol *frac);
 
 #endif

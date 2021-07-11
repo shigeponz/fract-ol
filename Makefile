@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/12 00:08:12 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/12 00:12:58 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ else
 $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(MLXDIR)
-	cp $(MLX) .
+	cp mlx/libmlx.dylib .
 	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) libmlx.dylib -o $(NAME) -D MAC
 
 all: $(NAME)

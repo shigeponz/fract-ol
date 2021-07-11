@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/01 08:10:57 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/11 23:25:54 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ UNAME		:= $(shell uname)
 
 ifeq ($(UNAME), Linux)
 LIBS	:= -lmlx -lXext -lX11
-SOURCE	:= fractol.c
+SOURCE	:= main.c error.c init.c utils.c
 MLX		:= ./linux_mlx/minilibx-linux
 else
 LIBS	:= -framework OpenGL -framework AppKit
-SOURCE	:= fractol.c
+SOURCE	:= main.c error.c init.c utils.c
 MLX		:= ./mlx/libmlx.dylib
 endif
 
@@ -41,7 +41,7 @@ ifeq ($(UNAME), Linux)
 $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(LINUX_MLX_DIR)
-	cp linux_mlx/libmlx_Linux.a .
+	cp $(MLX) .
 	$(CC) $(CFLAGS) $(SRCS) $(MLX) $(LIBS) $(LIBFT) -o $(NAME)
 
 all: $(NAME)
@@ -52,7 +52,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(MLX)
+	$(RM) $(NAME) minilibx-linux
 
 re: fclean all
 
@@ -63,7 +63,8 @@ else
 $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(MLXDIR)
-	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(MLX) $(LIBS) -o $(NAME) -D MAC
+	cp $(MLX) .
+	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) libmlx.dylib -o $(NAME) -D MAC
 
 all: $(NAME)
 
@@ -74,7 +75,7 @@ clean:
 	$(RM) $(MLX)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) libmlx.dylib
 
 re:		fclean all
 

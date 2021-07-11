@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 07:05:26 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/01 07:54:20 by hshigemu         ###   ########.fr       */
+/*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
+/*   Updated: 2021/07/11 23:22:31 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	main(int argc, char *argv[])
+int	ft_close(t_fractol *frac)
 {
-	argc = 0;
-	argv = NULL;
+	mlx_destroy_window(frac->var.mlx, frac->var.win);
+	mlx_destroy_image(frac->var.mlx, frac->img.img);
+//	mlx_destroy_display(frac->var.mlx);
+	free(frac->var.mlx);
+	return (0);
 }

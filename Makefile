@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/11 23:51:58 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/12 00:01:28 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,14 @@ UNAME		:= $(shell uname)
 ifeq ($(UNAME), Linux)
 LIBS 	:= -lXext -lX11
 SOURCE	:= main.c error.c init.c utils.c
-MLX		:= ./minilibx_linux/minilibx-linux
 else
 LIBS 	:= libmlx.dylib -framework OpenGL -framework AppKit
 SOURCE	:= main.c error.c init.c utils.c
-MLX		:= ./mlx/libmlx.dylib
 endif
 
 LIBFTDIR		:= ./libft
 MLXDIR			:= ./mlx
-LINUX_MLX_DIR	:= ./minilibx_linux
+LINUX_MLX_DIR	:= ./minilibx-linux
 DIR				:= ./srcs
 
 LIBFT			:= ./libft/libft.a
@@ -41,7 +39,7 @@ ifeq ($(UNAME), Linux)
 $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(LINUX_MLX_DIR)
-	cp $(MLX) .
+	cp linux_mlx/libmlx_Linux.a .
 	$(CC) $(CFLAGS) $(SRCS) -L. -L.minilibx-linux -lmlx_Linux $(LIBS) -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/11 23:54:03 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/12 00:09:29 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define JULIA_ID 1
 # define WIN_HEIGHT 500
 # define WIN_WIDTH 809
-# define X_EVENT_KEY_EXIT 33
+# define X_EVENT_KEY_EXIT 65307
 
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5

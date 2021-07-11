@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/12 00:01:28 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/12 00:05:46 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ ifeq ($(UNAME), Linux)
 $(NAME): $(OBJS) $(SRCS)
 	$(MAKE) -C $(LIBFTDIR)
 	$(MAKE) -C $(LINUX_MLX_DIR)
-	cp linux_mlx/libmlx_Linux.a .
+	cp minilibx/libmlx_Linux.a .
 	$(CC) $(CFLAGS) $(SRCS) -L. -L.minilibx-linux -lmlx_Linux $(LIBS) -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)

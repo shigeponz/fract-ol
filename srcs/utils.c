@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/12 00:24:36 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/12 21:29:35 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ int	ft_close(t_fractol *frac)
 int	ft_keypress(int key, t_fractol *frac)
 {
 	if (key == K_ESC)
+		ft_close(frac);
+	return (0);
+}
+
+int	ft_mouse_move(int key, t_fractol *frac)
+{
+	if (key == SCROLL_UP)
+		ft_close(frac);
+	if (key == SCROLL_DOWN)
 		ft_close(frac);
 	return (0);
 }

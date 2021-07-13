@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/12 00:24:48 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/12 21:29:17 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_EXIT 33
 # define K_ESC 65307
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 #endif
 
@@ -75,5 +77,6 @@ void		ft_mandelbrot(void);
 int			ft_close(t_fractol *frac);
 t_fractol	ft_frac_init(int argc, char *argv[]);
 int			ft_keypress(int key, t_fractol *frac);
+int			ft_mouse_move(int key, t_fractol *frac);
 
 #endif

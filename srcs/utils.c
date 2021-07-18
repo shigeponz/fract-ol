@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/17 21:52:21 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:40:56 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ int	ft_keypress(int key, t_env *e)
 {
 	if (key == K_ESC)
 		ft_close(e);
+	if (key == KEY_1)
+		e->color = 255;
+	if (key == KEY_2)
+		e->color = 255 * 255;
+	if (key == KEY_0)
+		e->color = 1;
+	printf("%d\n",key);
+	ft_put_image(e);
 	return (0);
 }
 

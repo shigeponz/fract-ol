@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:10:36 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/16 23:33:49 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:38:15 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_env	ft_env_init(int argc, char *argv[])
 	ret.org_y = 0.0;
 	ret.pos_x = 400;
 	ret.pos_y = 400;
+	ret.color = 1;
 	if (argc == 2)
 		return (ret);
 	if (argc == 3)

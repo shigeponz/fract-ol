@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/17 22:06:17 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:38:59 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define WIN_HEIGHT 800
 # define WIN_WIDTH 800
 # define SQUARE_RANGE 4
-# define PARTICLE_SIZE 20
+# define PARTICLE_SIZE 50
 
 # ifdef MAC
 
@@ -42,6 +42,16 @@
 # define K_ESC 53
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
+# define KEY_1 18
+# define KEY_2 19
+# define KEY_3 20
+# define KEY_4 21
+# define KEY_5 23
+# define KEY_6 22
+# define KEY_7 26
+# define KEY_8 28
+# define KEY_9 25
+# define KEY_0 29
 
 # else
 
@@ -50,6 +60,16 @@
 # define K_ESC 65307
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
+# define KEY_1 18
+# define KEY_2 19
+# define KEY_3 20
+# define KEY_4 21
+# define KEY_5 23
+# define KEY_6 22
+# define KEY_7 26
+# define KEY_8 28
+# define KEY_9 25
+# define KEY_0 29
 
 #endif
 
@@ -70,17 +90,18 @@ typedef struct s_image
 
 typedef struct s_env
 {
-	double	param1;
-	double	param2;
-	double	org_x;
-	double	org_y;
-	int		pos_x;
-	int		pos_y;
-	int		frac_id;
-	int		buf[WIN_HEIGHT][WIN_WIDTH];
-	double	zoom;
-	t_vars	var;
-	t_image	img;
+	double			param1;
+	double			param2;
+	double			org_x;
+	double			org_y;
+	int				pos_x;
+	int				pos_y;
+	int				frac_id;
+	int				buf[WIN_HEIGHT][WIN_WIDTH];
+	unsigned int	color;
+	double			zoom;
+	t_vars			var;
+	t_image			img;
 }	t_env;
 
 void		ft_print_error(char *message);

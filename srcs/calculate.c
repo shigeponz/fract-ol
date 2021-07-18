@@ -6,13 +6,13 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 23:56:24 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/17 22:13:21 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:38:20 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	ft_mandelbrot_color(double x, double y)
+int	ft_mandelbrot_color(double x, double y, t_env *e)
 {
 	int		i;
 	double	re;
@@ -28,12 +28,12 @@ int	ft_mandelbrot_color(double x, double y)
 		re = pow(tmp_re, 2) - pow(tmp_im, 2) + x;
 		im = tmp_re * tmp_im * 2 + y;
 		if (hypot(re, im) > 2)
-			return (0);
+			break ;
 		tmp_re = re;
 		tmp_im = im;
 		i++;
 	}
-	return (100);
+	return (e->color * i * 50);
 }
 
 int	ft_julia_color(double x, double y, t_env *e)
@@ -52,12 +52,12 @@ int	ft_julia_color(double x, double y, t_env *e)
 		re = pow(tmp_re, 2) - pow(tmp_im, 2) + e->param1;
 		im = tmp_re * tmp_im * 2 + e->param2;
 		if (hypot(re, im) > 2)
-			return (0);
+			break ;
 		tmp_re = re;
 		tmp_im = im;
 		i++;
 	}
-	return (100);
+	return (e->color * i * 5);
 }
 
 /*
@@ -100,7 +100,7 @@ int	ft_calculate(t_env *e, int x, int y)
 		(y - e->pos_y) / WIN_HEIGHT;
 	color = 0;
 	if (e->frac_id == MANDELBROT_ID)
-		color = ft_mandelbrot_color(coordinate_x, coordinate_y);
+		color = ft_mandelbrot_color(coordinate_x, coordinate_y, e);
 	if (e->frac_id == JULIA_ID)
 		color = ft_julia_color(coordinate_x, coordinate_y, e);
 	/*

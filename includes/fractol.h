@@ -19,16 +19,21 @@
 
 # define INVALID_COMMANDLINE_NUM_ERR "invalid number of command line\n"
 # define HELP_MESSAGE1 "-------HELP-------\n\n"
-# define HELP_MESSAGE2 "[Julia]\n\n./fractol J (param_x) (param_y)\n\n"
-# define HELP_MESSAGE3 "[Mandelbrot]\n\n./fractol M\n\n"
-# define HELP_MESSAGE4 "[Bonus]\n\n./fractol M2\n\n"
-# define HELP_MESSAGE5 "------------------\n"
+# define HELP_MESSAGE2 "[Julia]\n\n./fractol J (param_x) (param_y)\n"
+# define HELP_MESSAGE3 "** param_x and param_y must be REAL NUMBER\n\n"
+# define HELP_MESSAGE4 "[Mandelbrot]\n\n./fractol M\n\n"
+/*
+# define HELP_MESSAGE5 "[Bonus]\n\n./fractol M2 (param)\n\n"
+*/
+# define HELP_MESSAGE6 "------------------\n"
 # define MEMALLOC_ERR "memory allocation error!!\n"
 # define MANDELBROT_ID 0
 # define JULIA_ID 1
 # define MANDELBROT_BONUS_ID 2
-# define WIN_HEIGHT 500
-# define WIN_WIDTH 810
+# define WIN_HEIGHT 800
+# define WIN_WIDTH 800
+# define SQUARE_RANGE 4
+# define PARTICLE_SIZE 20
 
 # ifdef MAC
 
@@ -69,6 +74,8 @@ typedef struct s_env
 	double	param2;
 	double	org_x;
 	double	org_y;
+	int		pos_x;
+	int		pos_y;
 	int		frac_id;
 	int		buf[WIN_HEIGHT][WIN_WIDTH];
 	double	zoom;
@@ -78,13 +85,15 @@ typedef struct s_env
 
 void		ft_print_error(char *message);
 void		ft_print_help(void);
-int			ft_validate_argv(char *argv[]);
+int			ft_validate_argv(int argc, char *argv[]);
+int 		ft_validate_float(char *obj);
 void		ft_mandelbrot(void);
 int			ft_close(t_env *frac);
 t_env		ft_env_init(int argc, char *argv[]);
 int			ft_keypress(int key, t_env *frac);
 void		ft_put_image(t_env *e);
 int			ft_mouse_move(int key, int x, int y, t_env *frac);
-void		ft_calculate(t_env *e);
+void		ft_put_color(t_env *e);
+int			ft_calculate(t_env *e, int x, int y);
 
 #endif

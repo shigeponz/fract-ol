@@ -24,6 +24,31 @@ void	ft_print_help()
 	printf("%s", HELP_MESSAGE2);
 	printf("%s", HELP_MESSAGE3);
 	printf("%s", HELP_MESSAGE4);
+	/*
 	printf("%s", HELP_MESSAGE5);
+	*/
+	printf("%s", HELP_MESSAGE6);
 	exit(1);
+}
+
+int ft_validate_float(char *obj)
+{
+    int     flg;
+    int     i;
+
+    flg = 0;
+    i = 0;
+    while (obj[i])
+    {
+        if (obj[i] == '.' && flg == 0)
+        {
+            flg = 1;
+            i++;
+            continue;
+        }
+        if (ft_isdigit(obj[i]) == 0)
+            return (1);
+        i++;
+    }
+    return (0);
 }

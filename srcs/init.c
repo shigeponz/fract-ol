@@ -37,14 +37,26 @@ t_image	ft_img_init(t_vars var)
 	return (img);
 }
 
-int	ft_validate_argv(char *argv[])
+int	ft_validate_argv(int argc, char *argv[])
 {
 	if (ft_strncmp(argv[1], "M", 2) == 0)
 		return (MANDELBROT_ID);
 	if (ft_strncmp(argv[1], "J", 2) == 0)
+	{
+		if (argc < 4)
+			ft_print_help();
+		if (ft_validate_float(argv[2]) == 1 || ft_validate_float(argv[3]) == 1)
+			ft_print_help();
 		return (JULIA_ID);
+	}
+	/*
 	if (ft_strncmp(argv[1], "M2", 3) == 0)
+	{
+		if (argc < 3)
+			ft_print_help();
 		return (MANDELBROT_BONUS_ID);
+	}
+	*/
 	ft_print_help();
 	return (0);
 }
@@ -53,21 +65,26 @@ t_env	ft_env_init(int argc, char *argv[])
 {
 	t_env	ret;
 
-	ret.frac_id = ft_validate_argv(argv);
+	ret.frac_id = ft_validate_argv(argc, argv);
 	if (ret.frac_id == 0)
 		ret.var = ft_var_init("mandelbrot");
 	if (ret.frac_id == 1)
 		ret.var = ft_var_init("julia");
+	/*
 	if (ret.frac_id == 2)
 		ret.var = ft_var_init("mandelbrot option");
+	*/
 	ret.img = ft_img_init(ret.var);
 	ret.zoom = 1.0;
 	ret.org_x = 0.0;
 	ret.org_y = 0.0;
-	if (argc < 4)
+	ret.pos_x = 400;
+	ret.pos_y = 400;
+	if (argc == 2)
+		return (ret);
+	if (argc == 3)
 	{
-		ret.param1 = 0.0;
-		ret.param2 = 0.0;
+		ret.param1 = atoi(argv[2]);
 		return (ret);
 	}
 	ret.param1 = atof(argv[2]);

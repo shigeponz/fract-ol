@@ -16,10 +16,7 @@ int	main(int argc, char *argv[])
 {
 	t_env	env;
 
-	if (argc < 2)
-		ft_print_error(INVALID_COMMANDLINE_NUM_ERR);
 	env = ft_env_init(argc, argv);
-	ft_calculate(&env);
 	ft_put_image(&env);
 	mlx_hook(env.var.win, 4, 1L << 2, ft_mouse_move, &env);
 	mlx_hook(env.var.win, X_EVENT_KEY_PRESS, 1L << 0, ft_keypress, &env);

@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/12 21:29:17 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/17 22:06:17 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@
 # include <math.h>
 
 # define INVALID_COMMANDLINE_NUM_ERR "invalid number of command line\n"
-# define HELP_MESSAGE "-------HELP-------\n"
-# define COMMAND_EXAMPLE1 "./fractol julia (parameters)\n"
-# define COMMAND_EXAMPLE2 "./fractol mandelbrot\n"
+# define HELP_MESSAGE1 "-------HELP-------\n\n"
+# define HELP_MESSAGE2 "[Julia]\n\n./fractol J (param_x) (param_y)\n\n"
+# define HELP_MESSAGE3 "[Mandelbrot]\n\n./fractol M\n\n"
+# define HELP_MESSAGE4 "[Bonus]\n\n./fractol M2\n\n"
+# define HELP_MESSAGE5 "------------------\n"
 # define MEMALLOC_ERR "memory allocation error!!\n"
 # define MANDELBROT_ID 0
 # define JULIA_ID 1
+# define MANDELBROT_BONUS_ID 2
 # define WIN_HEIGHT 500
-# define WIN_WIDTH 809
+# define WIN_WIDTH 810
 
 # ifdef MAC
 
@@ -60,23 +63,28 @@ typedef struct s_image
 	int		endian;
 }	t_image;
 
-typedef struct s_fractol
+typedef struct s_env
 {
-	int		julia_x;
-	int		julia_y;
+	double	param1;
+	double	param2;
+	double	org_x;
+	double	org_y;
 	int		frac_id;
-	float	zoom;
+	int		buf[WIN_HEIGHT][WIN_WIDTH];
+	double	zoom;
 	t_vars	var;
 	t_image	img;
-}	t_fractol;
+}	t_env;
 
 void		ft_print_error(char *message);
 void		ft_print_help(void);
 int			ft_validate_argv(char *argv[]);
 void		ft_mandelbrot(void);
-int			ft_close(t_fractol *frac);
-t_fractol	ft_frac_init(int argc, char *argv[]);
-int			ft_keypress(int key, t_fractol *frac);
-int			ft_mouse_move(int key, t_fractol *frac);
+int			ft_close(t_env *frac);
+t_env		ft_env_init(int argc, char *argv[]);
+int			ft_keypress(int key, t_env *frac);
+void		ft_put_image(t_env *e);
+int			ft_mouse_move(int key, int x, int y, t_env *frac);
+void		ft_calculate(t_env *e);
 
 #endif

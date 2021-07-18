@@ -6,7 +6,7 @@
 #    By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 07:24:46 by hshigemu          #+#    #+#              #
-#    Updated: 2021/07/17 22:05:46 by hshigemu         ###   ########.fr        #
+#    Updated: 2021/07/18 18:42:21 by hshigemu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS 	:= -lXext -lX11
 SOURCE	:= main.c error.c init.c utils.c calculate.c
 else
 LIBS 	:= libmlx.dylib -framework OpenGL -framework AppKit
-SOURCE	:= main.c error.c init.c utils.c calculate.c
+SOURCE	:= main.c error.c init.c mac_utils.c calculate.c
 endif
 
 LIBFTDIR		:= ./libft

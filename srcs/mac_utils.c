@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   mac_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/18 18:41:42 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/18 18:42:11 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_close(t_env *e)
 {
 	mlx_destroy_window(e->var.mlx, e->var.win);
 	mlx_destroy_image(e->var.mlx, e->img.img);
-	mlx_destroy_display(e->var.mlx);
 	free(e->var.mlx);
 	exit(0);
 }

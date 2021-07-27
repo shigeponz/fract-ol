@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/18 18:42:11 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/27 23:17:26 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	ft_keypress(int key, t_env *e)
 		e->color = 255 * 255;
 	if (key == KEY_0)
 		e->color = 1;
-	printf("%d\n",key);
 	ft_put_image(e);
 	return (0);
 }
@@ -40,17 +39,16 @@ int	ft_mouse_move(int key, int x, int y, t_env *e)
 	double	square_length;
 
 	square_length = SQUARE_RANGE / e->zoom;
-	e->org_x = e->org_x + square_length *
-		(x - e->pos_x) / (WIN_WIDTH - 1);
-	e->org_y = e->org_y + square_length *
-		(y - e->pos_y) / (WIN_HEIGHT - 1);
+	e->org_x = e->org_x + square_length
+		* (x - e->pos_x) / (WIN_WIDTH - 1);
+	e->org_y = e->org_y + square_length
+		* (y - e->pos_y) / (WIN_HEIGHT - 1);
 	e->pos_x = x;
 	e->pos_y = y;
 	if (key == SCROLL_UP)
 		e->zoom *= 1.1;
 	if (key == SCROLL_DOWN)
 		e->zoom /= 1.1;
-//	printf("%d, %d, %f, %f\n",e->pos_x,e->pos_y,e->org_x,e->org_y);
 	ft_put_image(e);
 	return (0);
 }

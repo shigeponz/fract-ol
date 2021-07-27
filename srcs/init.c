@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:10:36 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/18 18:38:15 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/27 23:16:20 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,14 @@ t_image	ft_img_init(t_vars var)
 	if (img.img == NULL)
 		ft_print_error(MEMALLOC_ERR);
 	img.addr = (int *)mlx_get_data_addr(img.img, &img.bits_per_pixel,
-		&img.line_length, &img.endian);
+			&img.line_length, &img.endian);
 	return (img);
 }
 
 int	ft_validate_argv(int argc, char *argv[])
 {
+	if (argc < 2)
+		ft_print_help();
 	if (ft_strncmp(argv[1], "M", 2) == 0)
 		return (MANDELBROT_ID);
 	if (ft_strncmp(argv[1], "J", 2) == 0)
@@ -49,14 +51,6 @@ int	ft_validate_argv(int argc, char *argv[])
 			ft_print_help();
 		return (JULIA_ID);
 	}
-	/*
-	if (ft_strncmp(argv[1], "M2", 3) == 0)
-	{
-		if (argc < 3)
-			ft_print_help();
-		return (MANDELBROT_BONUS_ID);
-	}
-	*/
 	ft_print_help();
 	return (0);
 }
@@ -70,10 +64,6 @@ t_env	ft_env_init(int argc, char *argv[])
 		ret.var = ft_var_init("mandelbrot");
 	if (ret.frac_id == 1)
 		ret.var = ft_var_init("julia");
-	/*
-	if (ret.frac_id == 2)
-		ret.var = ft_var_init("mandelbrot option");
-	*/
 	ret.img = ft_img_init(ret.var);
 	ret.zoom = 1.0;
 	ret.org_x = 0.0;

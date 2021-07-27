@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 07:03:22 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/18 18:45:33 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/07/27 23:20:02 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,41 +37,41 @@
 
 # ifdef MAC
 
-# define X_EVENT_KEY_PRESS 2
-# define X_EVENT_KEY_EXIT 17
-# define K_ESC 53
-# define SCROLL_UP 4
-# define SCROLL_DOWN 5
-# define KEY_1 18
-# define KEY_2 19
-# define KEY_3 20
-# define KEY_4 21
-# define KEY_5 23
-# define KEY_6 22
-# define KEY_7 26
-# define KEY_8 28
-# define KEY_9 25
-# define KEY_0 29
+#  define X_EVENT_KEY_PRESS 2
+#  define X_EVENT_KEY_EXIT 17
+#  define K_ESC 53
+#  define SCROLL_UP 4
+#  define SCROLL_DOWN 5
+#  define KEY_1 18
+#  define KEY_2 19
+#  define KEY_3 20
+#  define KEY_4 21
+#  define KEY_5 23
+#  define KEY_6 22
+#  define KEY_7 26
+#  define KEY_8 28
+#  define KEY_9 25
+#  define KEY_0 29
 
 # else
 
-# define X_EVENT_KEY_PRESS 2
-# define X_EVENT_KEY_EXIT 33
-# define K_ESC 65307
-# define SCROLL_UP 4
-# define SCROLL_DOWN 5
-# define KEY_0 48
-# define KEY_1 49
-# define KEY_2 50
-# define KEY_3 51
-# define KEY_4 52
-# define KEY_5 53
-# define KEY_6 54
-# define KEY_7 55
-# define KEY_8 56
-# define KEY_9 57
+#  define X_EVENT_KEY_PRESS 2
+#  define X_EVENT_KEY_EXIT 33
+#  define K_ESC 65307
+#  define SCROLL_UP 4
+#  define SCROLL_DOWN 5
+#  define KEY_0 48
+#  define KEY_1 49
+#  define KEY_2 50
+#  define KEY_3 51
+#  define KEY_4 52
+#  define KEY_5 53
+#  define KEY_6 54
+#  define KEY_7 55
+#  define KEY_8 56
+#  define KEY_9 57
 
-#endif
+# endif
 
 typedef struct s_vars
 {
@@ -107,7 +107,7 @@ typedef struct s_env
 void		ft_print_error(char *message);
 void		ft_print_help(void);
 int			ft_validate_argv(int argc, char *argv[]);
-int 		ft_validate_float(char *obj);
+int			ft_validate_float(char *obj);
 void		ft_mandelbrot(void);
 int			ft_close(t_env *frac);
 t_env		ft_env_init(int argc, char *argv[]);

@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 23:06:56 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/27 23:17:58 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/08/17 23:15:57 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	ft_mouse_move(int key, int x, int y, t_env *e)
 {
 	double	square_length;
 
+	if (key == SCROLL_UP || key == SCROLL_DOWN)
+		y = WIN_WIDTH - y - 1;
 	square_length = SQUARE_RANGE / e->zoom;
 	e->org_x = e->org_x + square_length
 		* (x - e->pos_x) / (WIN_WIDTH - 1);

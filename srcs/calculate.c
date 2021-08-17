@@ -6,7 +6,7 @@
 /*   By: hshigemu <hshigemu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 23:56:24 by hshigemu          #+#    #+#             */
-/*   Updated: 2021/07/27 23:19:44 by hshigemu         ###   ########.fr       */
+/*   Updated: 2021/08/17 23:19:59 by hshigemu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_mandelbrot_color(double x, double y, t_env *e)
 		tmp_im = im;
 		i++;
 	}
-	return (e->color * i * 50);
+	return (e->color * i * 1000);
 }
 
 int	ft_julia_color(double x, double y, t_env *e)
